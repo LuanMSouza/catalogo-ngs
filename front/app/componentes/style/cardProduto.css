@@ -1,0 +1,34 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    padding: .5rem;
+    box-shadow: 3px 3px 5px #333;
+    cursor: pointer;
+}
+
+.card .nome {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.card .valor {
+    font-size: 1.5rem;
+    color: brown;
+    font-weight: bold;
+}
+
+.card .foto {
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.indisponivel{
+    cursor: not-allowed;
+    position: relative;
+}

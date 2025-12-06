@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: brown;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: brown;
+}
+
+.container {
+  margin: 2rem 4rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem 0 0 1rem;
+}
+
+select {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
