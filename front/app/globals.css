@@ -42,3 +42,33 @@ select {
   justify-content: center;
   margin-bottom: 1rem;
 }
+
+.container-produtos {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    margin: 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    margin: .5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .container-produtos {
+    gap: 16px;
+  }
+}

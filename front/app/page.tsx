@@ -64,13 +64,17 @@ export default function Home() {
   }
 
   function filtrarProdutos() {
+    const filtroLower = filtro?.toLowerCase() ?? ''
+    const categoriaLower = categoria?.toLowerCase() ?? ''
+
     return produtos.filter(produto => {
-      const matchNome = produto.nome
-        .toLowerCase()
-        .includes(filtro.toLowerCase())
+      const nomeProduto = produto.nome?.toLowerCase() ?? ''
+      const categoriaProduto = produto.categoria_nome?.toLowerCase() ?? ''
+
+      const matchNome = nomeProduto.includes(filtroLower)
 
       const matchCategoria = categoria
-        ? produto.categoria_nome.toLowerCase() === categoria.toLowerCase()
+        ? categoriaProduto === categoriaLower
         : true
 
       return matchNome && matchCategoria
@@ -110,28 +114,24 @@ export default function Home() {
 
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            gap: '32px',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            marginTop: '32px'
-          }}>
+        <div className="container-produtos">
 
-          {produtosFiltrados &&
+          {produtosFiltrados && produtosFiltrados.length === 0 && (
+            <p style={{ textAlign: 'center', width: '100%' }}>
+              Nenhum produto encontrado.
+            </p>
+          )}
+
+          {produtosFiltrados && produtosFiltrados.length > 0 &&
             produtosFiltrados
-              .slice() // evitar mutar o array original
+              .slice()
               .sort((a, b) => {
                 const aDisp = a.estoque > 0 ? 1 : 0
                 const bDisp = b.estoque > 0 ? 1 : 0
-
                 return bDisp - aDisp
               })
               .map(produto => {
                 if (!produto.foto_url) return null
-
-                const disp = produto.estoque > 0
 
                 return (
                   <Card
@@ -141,14 +141,14 @@ export default function Home() {
                       nome: produto.nome,
                       valor: formatarValor(produto.venda),
                       foto: produto.foto_url,
-                      disponivel: disp
+                      disponivel: produto.estoque > 0
                     }}
                   />
                 )
               })
           }
-
         </div>
+
       </div>
 
     </>
